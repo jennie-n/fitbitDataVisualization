@@ -28,7 +28,7 @@ function addDates(csvData, column){
   }
 }
 
-// Obtains health data from a CSV file in
+// Obtains health data from a CSV file in 
 function getCSVFromGoogleDrive(file) { // add headerFormat as input parameter later
   var file = DriveApp.getFilesByName(file).next();
   var csvData = Utilities.parseCsv(file.getBlob().getDataAsString());
@@ -52,9 +52,9 @@ function updateGoogleSpreadsheet(){
   const sleepFile = "sleep.csv";
   const heartrateFile = "heartrate.csv";
   const caloriesFile = "calories.csv";
-
+  
   addDates(getCSVFromGoogleDrive(stepsFile), headerFormat["date"]["colNum"]);
-
+  
   addData( getCSVFromGoogleDrive(stepsFile), headerFormat["steps"]["colNum"] );
   addData( getCSVFromGoogleDrive(sleepFile), headerFormat["sleep"]["colNum"] );
   addData( getCSVFromGoogleDrive(heartrateFile), headerFormat["heartrate"]["colNum"] );
@@ -64,23 +64,23 @@ function updateGoogleSpreadsheet(){
 
 // Creates a new Google spreadsheet with data
 function createGoogleSpreadsheet(){
-
+  
 }
 
 // Produces a chart with all health data information in spreadsheet
 function makeCumulativeChart() {
   var headerRow = sheet.getRange("B1:E1").getValues();
-  //Logger.log(headerRow); // for testing purposes
+  Logger.log(headerRow); // for testing purposes
   var cumulativeChart = sheet.getActiveSheet().newChart().asLineChart()
   .addRange(sheet.getRange("A1:E17"))
   .setTitle('Health Information by Date')
   .setXAxisTitle('Date')
   .setPosition(3, 7, 0, 0)
-  .setOption('series',
-     {0:{labelInLegend:headerRow[0]},
-      1:{labelInLegend:headerRow[1]},
-      2:{labelInLegend:headerRow[2]},
-      3:{labelInLegend:headerRow[3]}})
+  .setOption('series', 
+     {0:{labelInLegend:headerRow[0][0]},
+      1:{labelInLegend:headerRow[0][1]},
+      2:{labelInLegend:headerRow[0][2]},
+      3:{labelInLegend:headerRow[0][3]}})
   .build();
 
    sheet.getActiveSheet().insertChart(cumulativeChart);
@@ -88,23 +88,13 @@ function makeCumulativeChart() {
 
 // Produces "Steps Taken vs. Hours of Sleep" chart
 function makeStepsSleepChart() {
-  var headerRow = sheet.getRange("B1:C1").getValues();
-  Logger.log(headerRow); // for testing purposes
-  var r = sheet.getRange("C1:B17")
-  var values = r.getValues()
-  Logger.log(values)
   var stepsSleepChart = sheet.getActiveSheet().newChart().asScatterChart()
-  .addRange(sheet.getRange("C1:B17"))
+  .addRange(sheet.getRange("C1:C17"))
+  .addRange(sheet.getRange("B1:B17"))
   .setTitle('Steps Taken vs. Hours of Sleep')
-  .setXAxisTitle('Steps Taken')
-  .setYAxisTitle('Hours of Sleep')
+  .setXAxisTitle('Hours of Sleep')
+  .setOption('vAxes.0.title', 'Steps Taken') // set y axis
   .setPosition(22, 7, 0, 0)
-  .setOption('vAxes.0.title', 'Hours of Sleep')
-  /*.setOption('series',
-     {0:{labelInLegend:headerRow[0]},
-      1:{labelInLegend:headerRow[1]},
-      2:{labelInLegend:headerRow[2]},
-      3:{labelInLegend:headerRow[3]}}) */
   .setOption("trendlines", {0: {type: "linear"}})
   .build();
 

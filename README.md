@@ -22,8 +22,7 @@ Python is used to automate the data extraction from the Fitbit Web API. The resu
 - Create graph visualization of the data from Google Spreadsheet
 
 ## To Do
-- [ ] Switch x and y axes of "Steps Taken vs. Hours of Sleep" chart
-- [ ] Add labels to the cumulative chart's legend
+- [x] Add labels to the cumulative chart's legend
 - [ ] Merge the health information in 4 separate CSV files produced into 1 CSV file
 - [ ] Add error checking for dates with missing stats (aka dates on which the fitbit was not worn or the data has not been uploaded)
 - [ ] Add permissions functionality: The script can access the user's list of emails to share with in a Google doc or spreadsheet, instead of manually sharing to each email
