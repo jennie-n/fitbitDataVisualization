@@ -2,7 +2,18 @@
 ## About
 Fitbit Data Visualization is a program that extracts data from the Fitbit API into Google Spreadsheets to create user-friendly, visually appealing charts. Now your stats can be easily shared with anyone you know!
 
-Python is used to automate the data extraction from the Fitbit Web API. The result of this automation process are 4 CSV files with health information (steps taken, hours of sleep, resting heart rate, and calories burned) in chronological order by date. The Google Apps Script API utilizes javascript and is used to organize this data into Google Spreadsheets.
+Python is used to automate the data extraction from the Fitbit Web API. The result of this automation process are 4 CSV files with health information (steps taken, hours of sleep, resting heart rate, and calories burned) in chronological order by date. The Google Apps Script API utilizes javascript, is used to organize this data into Google Spreadsheets (See image 1), and creates a line chart (See image 2) and scatter plot (See image 3) from this information.
+
+<div align="center">Image 1: Health Data</div>
+
+![Image of data](data.JPG)
+
+<div align="center">Image 2: Line chart</div>
+
+![Image of cumulative data chart](cumulative_health_chart.png)
+<div align="center">Image 3: Scatter Plot</div>
+
+![Image of steps vs sleep chart](steps_sleep_chart.png)
 
 ## Built With
 ### Languages
