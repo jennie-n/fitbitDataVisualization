@@ -34,6 +34,7 @@ Python is used to automate the data extraction from the Fitbit Web API. The resu
 
 ## To Do
 - [x] Add labels to the cumulative chart's legend
+- [x] Automate generating new refresh + access tokens and overwriting old .env token variables when running script 
 - [ ] Merge the health information in 4 separate CSV files produced into 1 CSV file
 - [ ] Add error checking for dates with missing stats (aka dates on which the fitbit was not worn or the data has not been uploaded)
 - [ ] Add permissions functionality: The script can access the user's list of emails to share with in a Google doc or spreadsheet, instead of manually sharing to each email

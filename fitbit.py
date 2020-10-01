@@ -25,10 +25,10 @@ USER_ID = os.getenv('USER_ID')
 # activity_request1 = requests.get('https://api.fitbit.com/1/user/-/profile.json', headers={'Authorization': 'Bearer ' + ACCESS_TOKEN})
 # print(activity_request1)
 
-# get_steps(USER_ID, ACCESS_TOKEN)
+get_steps(USER_ID, ACCESS_TOKEN)
 
-# get_heartrate(USER_ID, ACCESS_TOKEN)
+get_heartrate(USER_ID, ACCESS_TOKEN)
 
-# get_sleep(USER_ID, ACCESS_TOKEN)
+get_sleep(USER_ID, ACCESS_TOKEN)
 
-# get_calories(USER_ID, ACCESS_TOKEN)
+get_calories(USER_ID, ACCESS_TOKEN)
